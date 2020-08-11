@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const FlexWrapper = styled.div`
-border: 2px dotted blue;
 overflow: auto;
 width: 100%;
+margin-top: 30px;
 display: flex;
 justify-content: space-between;
 `;
