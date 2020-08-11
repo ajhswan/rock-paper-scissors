@@ -31,6 +31,8 @@ class GameBoard extends Component {
         this.startTimer = this.startTimer.bind(this);
         this.pauseTimer = this.pauseTimer.bind(this);
         this.updatePlayerSelection = this.updatePlayerSelection.bind(this);
+        this.botPick = this.botPick.bind(this);
+        this.updateBotSelection = this.updateBotSelection.bind(this);
     }
 
     startTimer() {
@@ -43,8 +45,9 @@ class GameBoard extends Component {
             }
             if (seconds === 0) {
               if (minutes === 0) {
-                this.setState({
-                    seconds: 5
+                  this.updateBotSelection();
+                  this.setState({
+                    seconds: 5,
                 })
               }
             }
@@ -56,11 +59,25 @@ class GameBoard extends Component {
     }
 
     updatePlayerSelection(arg) {
-
         this.setState({
             playerSelection: arg
         })
     }
+
+    botPick() {
+        const selectionList = ["Rock", "Paper", "Scissors"];
+        const randomNumber = Math.floor(Math.random() * 3);
+        return selectionList[randomNumber];
+    }
+
+    updateBotSelection() {
+        const selection = this.botPick();
+        console.log(selection);
+        this.setState({
+            botSelection: selection
+        })    
+    }
+
     render() {
         return (
             <MainBoard>
