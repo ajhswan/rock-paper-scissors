@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import Timer from './Timer';
+
+
+
 class GameBoard extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            timer: {
+                minutes: 0,
+                seconds: 5
+            }
+        };
+
+    }
+
+
+
     render() {
         return (
             <MainBoard>
+                <Timer timer={this.state.timer} />
             </MainBoard>
         )
     }
