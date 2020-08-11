@@ -30,6 +30,7 @@ class GameBoard extends Component {
         
         this.startTimer = this.startTimer.bind(this);
         this.pauseTimer = this.pauseTimer.bind(this);
+        this.updatePlayerSelection = this.updatePlayerSelection.bind(this);
     }
 
     startTimer() {
@@ -51,10 +52,15 @@ class GameBoard extends Component {
     }
 
     pauseTimer() {
-        console.log("pause");
         clearInterval(this.timer);
     }
 
+    updatePlayerSelection(arg) {
+
+        this.setState({
+            playerSelection: arg
+        })
+    }
     render() {
         return (
             <MainBoard>
@@ -71,9 +77,9 @@ class GameBoard extends Component {
                     </CardSlot>
                 </FlexWrapper>
                 <FlexWrapper>
-                    <SelectionButton name="Rock" />
-                    <SelectionButton name="Paper" />
-                    <SelectionButton name="Scissors" />
+                    <SelectionButton action={this.updatePlayerSelection} name="Rock" />
+                    <SelectionButton action={this.updatePlayerSelection} name="Paper" />
+                    <SelectionButton action={this.updatePlayerSelection} name="Scissors" />
                 </FlexWrapper>
                 <FlexWrapper>
                     <StartButton name="Start Game" start={this.startTimer}/>

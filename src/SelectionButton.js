@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 class SelectionButton extends Component {
+    
+    handleClick = () => {
+        this.props.action(this.props.name);
+    }
 
     render() {
         return(
             <React.Fragment>
-                <StyledButton>{this.props.name}</StyledButton>
+                <StyledButton onClick={this.handleClick}>{this.props.name}</StyledButton>
             </React.Fragment>
         )
     }
