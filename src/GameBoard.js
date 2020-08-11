@@ -25,7 +25,8 @@ class GameBoard extends Component {
             botScore: 0,
             header: null,
             playerSelection: "Rock",
-            botSelection: "Rock"
+            botSelection: "Rock",
+            result: "",
         };
         
         this.startTimer = this.startTimer.bind(this);
@@ -33,6 +34,7 @@ class GameBoard extends Component {
         this.updatePlayerSelection = this.updatePlayerSelection.bind(this);
         this.botPick = this.botPick.bind(this);
         this.updateBotSelection = this.updateBotSelection.bind(this);
+        this.checkResult = this.checkResult.bind(this);
     }
 
     startTimer() {
@@ -43,13 +45,12 @@ class GameBoard extends Component {
                   seconds: seconds - 1
               })
             }
-            if (seconds === 0) {
-              if (minutes === 0) {
+            if (seconds === 0 && minutes === 0) {
                   this.updateBotSelection();
+                  this.checkResult();
                   this.setState({
                     seconds: 5,
                 })
-              }
             }
           }, 1000)
     }
@@ -76,6 +77,56 @@ class GameBoard extends Component {
         this.setState({
             botSelection: selection
         })    
+    }
+
+    checkResult() {
+        const { playerSelection, botSelection, botScore, playerScore } = this.state;
+        if (playerSelection === botSelection) {
+            this.setState({
+                result: "Draw"
+            })
+        }
+        if (playerSelection === "Rock") {
+            if (botSelection === "Paper") {
+                this.setState({
+                result: "Lose",
+                botScore: botScore + 1
+                })
+            } else if(botSelection === "Scissors") {
+                this.setState({
+                    result: "Win",
+                    playerScore: playerScore + 1
+                })
+            } 
+        }
+        
+        if (playerSelection === "Paper"){
+            if (botSelection === "Scissors") {
+                this.setState({
+                    result: "Lose",
+                    botScore: botScore + 1
+                })
+            } else if (botSelection === "Rock") {
+                this.setState({
+                    result: "Win",
+                    playerScore: playerScore + 1
+                })
+            }
+        }
+
+        if (playerSelection === "Scissors"){
+            if (botSelection === "Rock") {
+                this.setState({
+                    result: "Lose",
+                    botScore: botScore + 1
+                })
+            } else if (botSelection === "Paper") {
+                this.setState({
+                    result: "Win",
+                    playerScore: playerScore + 1
+                })
+            }
+        }
     }
 
     render() {
