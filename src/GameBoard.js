@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Timer from './Timer';
+import Score from './Score';
 
 
 
@@ -14,6 +15,10 @@ class GameBoard extends Component {
             timer: {
                 minutes: 0,
                 seconds: 5
+            },
+            score: {
+                player: 0,
+                bot: 0
             }
         };
 
@@ -25,6 +30,7 @@ class GameBoard extends Component {
         return (
             <MainBoard>
                 <Timer timer={this.state.timer} />
+                <Score score={this.state.score} />
             </MainBoard>
         )
     }
