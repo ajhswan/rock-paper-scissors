@@ -62,7 +62,6 @@ class GameBoard extends Component {
     }
 
     pauseTimer() {
-        const { gameRunning } = this.state;
         clearInterval(this.timer);
         this.setState({
             gameRunning: false
@@ -145,6 +144,7 @@ class GameBoard extends Component {
             <MainBoard>
                 <Result result={this.state.result}/>
                 <Timer minutes={this.state.minutes} seconds={this.state.seconds} />
+                <SectionHeader header="Score" />
                 <Score playerScore={this.state.playerScore} botScore={this.state.botScore} />
                 <FlexWrapper>
                     <CardSlot>

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const FlexWrapper = styled.div`
 overflow: auto;
 width: 100%;
-margin-top: 30px;
+margin-top: 20px;
+margin-bottom: 20px;
 display: flex;
 justify-content: space-between;
 `;

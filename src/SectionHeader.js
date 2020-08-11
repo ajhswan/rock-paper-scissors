@@ -8,7 +8,7 @@ class SectionHeader extends Component {
 
         return (
             <HeaderWrapper>
-                <h3>{ header }</h3>
+                <StyledH3>{ header }</StyledH3>
             </HeaderWrapper>          
         )
     }
@@ -21,3 +21,7 @@ text-align: center;
 color: #212121;
 margin: 0 auto;
 `
+const StyledH3 = styled.h3`
+margin-top: 5px;
+margin-bottom: 0;
+`;

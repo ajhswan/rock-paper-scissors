@@ -7,7 +7,7 @@ class Score extends Component {
         const { playerScore, botScore } = this.props;
         return (
             <ScoreWrapper>
-                <h1>{ playerScore } : { botScore }</h1>
+                <StyledH1>{ playerScore } : { botScore }</StyledH1>
             </ScoreWrapper>
         )
     }
@@ -18,9 +18,14 @@ export default Score;
 const ScoreWrapper = styled.div `
 color: #757575;
 font-size: 1.5rem;
+margin-block-start: 0;
 margin: 0 auto;
-padding: 5px 0 5px 0;
 width: 250px;
 text-align: center;
 border-radius: 5px; 
+`;
+
+const StyledH1 = styled.h1`
+margin-top: 0;
+margin-bottom: 0;
 `;
