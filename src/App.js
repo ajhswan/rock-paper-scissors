@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import MainHeader from './MainHeader';
+import GameBoard from './GameBoard';
 
 class App extends Component {
   render() {
     return (
       <GameWrapper>
-      <MainHeader/>
+        <MainHeader/>
+        <GameBoard/>
       </GameWrapper>
     );
   }
