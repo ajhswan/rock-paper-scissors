@@ -6,6 +6,7 @@ class PauseButton extends Component {
     handleClick = () => {
         this.props.pause();
     }
+    
     render() {
         return (
             <React.Fragment>
