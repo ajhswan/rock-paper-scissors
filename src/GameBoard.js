@@ -7,6 +7,7 @@ import FlexWrapper from './FlexWrapper';
 import CardSlot from './CardSlot';
 import SectionHeader from './SectionHeader';
 import SelectionButton from './SelectionButton';
+import GameButton from './GameButton';
 
 
 
@@ -44,9 +45,13 @@ class GameBoard extends Component {
                     </CardSlot>
                 </FlexWrapper>
                 <FlexWrapper>
-                    <SelectionButton name="Rock"/>
-                    <SelectionButton name="Paper"/>
-                    <SelectionButton name="Scissors"/>
+                    <SelectionButton name="Rock" />
+                    <SelectionButton name="Paper" />
+                    <SelectionButton name="Scissors" />
+                </FlexWrapper>
+                <FlexWrapper>
+                    <GameButton name="Start Game" />
+                    <GameButton name="Pause Game" />
                 </FlexWrapper>
 
             </MainBoard>
@@ -59,7 +64,7 @@ export default GameBoard;
 const MainBoard = styled.div`
 background-color: #DBDBD;
 border: 2px dotted red;
-height: 500px;
+height: 600px;
 padding: 10px;
 overflow: auto;
 border-radius: 5px;
