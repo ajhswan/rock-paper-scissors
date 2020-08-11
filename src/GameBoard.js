@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 import Timer from './Timer';
 import Score from './Score';
-import CardWrapper from './CardWrapper';
+import FlexWrapper from './FlexWrapper';
 import CardSlot from './CardSlot';
 import SectionHeader from './SectionHeader';
+import SelectionButton from './SelectionButton';
 
 
 
@@ -23,26 +24,31 @@ class GameBoard extends Component {
                 player: 0,
                 bot: 0
             },
-            header: null
+            header: null,
+            playerSelection: "Rock",
         };
 
     }
-
-
 
     render() {
         return (
             <MainBoard>
                 <Timer timer={this.state.timer} />
                 <Score score={this.state.score} />
-                <CardWrapper>
+                <FlexWrapper>
                     <CardSlot>
                         <SectionHeader header="Player" />
                     </CardSlot>
                     <CardSlot>
                         <SectionHeader header="Bot" />
                     </CardSlot>
-                </CardWrapper>
+                </FlexWrapper>
+                <FlexWrapper>
+                    <SelectionButton name="Rock"/>
+                    <SelectionButton name="Paper"/>
+                    <SelectionButton name="Scissors"/>
+                </FlexWrapper>
+
             </MainBoard>
         )
     }
@@ -60,4 +66,3 @@ border-radius: 5px;
 margin: 10px 0 10px 0;
 position: relative;
 `;
-
