@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-class GameButton extends Component {
+class PauseButton extends Component {
+    
+    handleClick = () => {
+        this.props.pause();
+    }
     render() {
         return (
             <React.Fragment>
-                <StyledButton>{this.props.name}</StyledButton>
+                <StyledButton onClick={this.handleClick}>{this.props.name}</StyledButton>
             </React.Fragment>
         )
     }
 }
 
-export default GameButton;
+export default PauseButton;
 
 const StyledButton = styled.button`
 height: 50px;
