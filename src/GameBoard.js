@@ -28,6 +28,7 @@ class GameBoard extends Component {
             playerSelection: "Rock",
             botSelection: "Rock",
             result: "",
+            gameRunning: false
         };
         
         this.startTimer = this.startTimer.bind(this);
@@ -39,25 +40,34 @@ class GameBoard extends Component {
     }
 
     startTimer() {
-        this.timer = setInterval(() => {
-            const { minutes, seconds } = this.state;
-            if (seconds > 0) {
-              this.setState({
-                  seconds: seconds - 1
-              })
-            }
-            if (seconds === 0 && minutes === 0) {
-                  this.updateBotSelection();
-                  this.checkResult();
+        if(!this.state.gameRunning){
+            this.timer = setInterval(() => {
+                const { minutes, seconds } = this.state;
+                if (seconds > 0) {
                   this.setState({
-                    seconds: 5,
-                })
-            }
-          }, 1000)
+                      seconds: seconds - 1,
+                      gameRunning: true
+                  })
+                }
+                if (seconds === 0 && minutes === 0) {
+                      this.updateBotSelection();
+                      this.checkResult();
+                      this.setState({
+                        seconds: 5,
+                    })
+                }
+              }, 1000)
+        }
+
     }
 
     pauseTimer() {
+        const { gameRunning } = this.state;
         clearInterval(this.timer);
+        this.setState({
+            gameRunning: false
+        })
+
     }
 
     updatePlayerSelection(arg) {
