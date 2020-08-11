@@ -4,7 +4,7 @@ import styled from 'styled-components';
 class Timer extends Component {
 
     render() {
-        const { minutes, seconds } = this.props.timer;
+        const { minutes, seconds } = this.props;
         return (
             <TimerWrapper>
                 <h2>Next turn in: { minutes }:{ seconds < 10 ? `0${ seconds }` : seconds }</h2>

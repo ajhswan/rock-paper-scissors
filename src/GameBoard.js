@@ -7,7 +7,8 @@ import FlexWrapper from './FlexWrapper';
 import CardSlot from './CardSlot';
 import SectionHeader from './SectionHeader';
 import SelectionButton from './SelectionButton';
-import GameButton from './GameButton';
+import StartButton from './StartButton';
+import PauseButton from './PauseButton';
 import Card from './Card';
 
 
@@ -18,26 +19,47 @@ class GameBoard extends Component {
         super(props);
 
         this.state = {
-            timer: {
-                minutes: 0,
-                seconds: 5
-            },
-            score: {
-                player: 0,
-                bot: 0
-            },
+            minutes: 0,
+            seconds: 5,
+            playerScore: 0,
+            botScore: 0,
             header: null,
             playerSelection: "Rock",
             botSelection: "Rock"
         };
+        
+        this.startTimer = this.startTimer.bind(this);
+        this.pauseTimer = this.pauseTimer.bind(this);
+    }
 
+    startTimer() {
+        this.timer = setInterval(() => {
+            const { minutes, seconds } = this.state;
+            if (seconds > 0) {
+              this.setState({
+                  seconds: seconds - 1
+              })
+            }
+            if (seconds === 0) {
+              if (minutes === 0) {
+                this.setState({
+                    seconds: 5
+                })
+              }
+            }
+          }, 1000)
+    }
+
+    pauseTimer() {
+        console.log("pause");
+        clearInterval(this.timer);
     }
 
     render() {
         return (
             <MainBoard>
-                <Timer timer={this.state.timer} />
-                <Score score={this.state.score} />
+                <Timer minutes={this.state.minutes} seconds={this.state.seconds} />
+                <Score playerScore={this.state.playerScore} botScore={this.state.botScore} />
                 <FlexWrapper>
                     <CardSlot>
                         <SectionHeader header="Player" />
@@ -54,8 +76,8 @@ class GameBoard extends Component {
                     <SelectionButton name="Scissors" />
                 </FlexWrapper>
                 <FlexWrapper>
-                    <GameButton name="Start Game" />
-                    <GameButton name="Pause Game" />
+                    <StartButton name="Start Game" start={this.startTimer}/>
+                    <PauseButton name="Pause Game" pause={this.pauseTimer} />
                 </FlexWrapper>
 
             </MainBoard>

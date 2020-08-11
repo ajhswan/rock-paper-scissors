@@ -4,10 +4,10 @@ import styled from 'styled-components';
 class Score extends Component {
 
     render() {
-        const { player, bot } = this.props.score;
+        const { playerScore, botScore } = this.props;
         return (
             <ScoreWrapper>
-                <h1>{ player } : { bot }</h1>
+                <h1>{ playerScore } : { botScore }</h1>
             </ScoreWrapper>
         )
     }
