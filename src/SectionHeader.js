@@ -17,6 +17,7 @@ class SectionHeader extends Component {
 export default SectionHeader;
 
 const HeaderWrapper = styled.div`
+text-align: center;
 color: #212121;
 margin: 0 auto;
 `

@@ -10,6 +10,7 @@ import SelectionButton from './SelectionButton';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
 import Card from './Card';
+import Result from './Result';
 
 
 
@@ -132,6 +133,7 @@ class GameBoard extends Component {
     render() {
         return (
             <MainBoard>
+                <Result result={this.state.result}/>
                 <Timer minutes={this.state.minutes} seconds={this.state.seconds} />
                 <Score playerScore={this.state.playerScore} botScore={this.state.botScore} />
                 <FlexWrapper>
@@ -145,9 +147,9 @@ class GameBoard extends Component {
                     </CardSlot>
                 </FlexWrapper>
                 <FlexWrapper>
-                    <SelectionButton action={this.updatePlayerSelection} name="Rock" />
-                    <SelectionButton action={this.updatePlayerSelection} name="Paper" />
-                    <SelectionButton action={this.updatePlayerSelection} name="Scissors" />
+                    <SelectionButton action={this.updatePlayerSelection} name="Rock" color="red" />
+                    <SelectionButton action={this.updatePlayerSelection} name="Paper" color="blue" />
+                    <SelectionButton action={this.updatePlayerSelection} name="Scissors" color="yellow" />
                 </FlexWrapper>
                 <FlexWrapper>
                     <StartButton name="Start Game" start={this.startTimer}/>
@@ -163,8 +165,7 @@ export default GameBoard;
 
 const MainBoard = styled.div`
 background-color: #DBDBD;
-border: 2px dotted red;
-height: 600px;
+height: 650px;
 padding: 10px;
 overflow: auto;
 border-radius: 5px;
