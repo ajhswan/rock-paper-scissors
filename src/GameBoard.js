@@ -8,6 +8,7 @@ import CardSlot from './CardSlot';
 import SectionHeader from './SectionHeader';
 import SelectionButton from './SelectionButton';
 import GameButton from './GameButton';
+import Card from './Card';
 
 
 
@@ -27,6 +28,7 @@ class GameBoard extends Component {
             },
             header: null,
             playerSelection: "Rock",
+            botSelection: "Rock"
         };
 
     }
@@ -39,9 +41,11 @@ class GameBoard extends Component {
                 <FlexWrapper>
                     <CardSlot>
                         <SectionHeader header="Player" />
+                        <Card selection={this.state.playerSelection} />
                     </CardSlot>
                     <CardSlot>
                         <SectionHeader header="Bot" />
+                        <Card selection={this.state.botSelection}/>
                     </CardSlot>
                 </FlexWrapper>
                 <FlexWrapper>
