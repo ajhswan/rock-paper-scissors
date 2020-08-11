@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Rock from './img/Rock.jpg';
-import Paper from './img/Paper.jpg';
-import Scissors from './img/Scissors.jpg';
+import Rock from './img/rock.jpg';
+import Paper from './img/paper.jpg';
+import Scissors from './img/scissors.jpg';
 
 class Card extends Component {
     render() {
