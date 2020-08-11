@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+import MainHeader from './MainHeader';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Rock Paper Scissors</h1>
-      </div>
+      <GameWrapper>
+      <MainHeader/>
+      </GameWrapper>
     );
   }
 }
 
 export default App;
+
+const GameWrapper = styled.div`
+box-sizing: border-box;
+font-family: sans-serif;
+color: #FFFFFF;
+width: 800px;
+margin: 0 auto;
+position: relative;
+`;
