@@ -7,10 +7,10 @@ import GameBoard from './GameBoard';
 class App extends Component {
   render() {
     return (
-      <GameWrapper>
-        <MainHeader/>
-        <GameBoard/>
-      </GameWrapper>
+        <GameWrapper>
+          <MainHeader/>
+          <GameBoard/>
+        </GameWrapper>
     );
   }
 }
@@ -18,10 +18,10 @@ class App extends Component {
 export default App;
 
 const GameWrapper = styled.div`
-box-sizing: border-box;
-font-family: sans-serif;
-color: #FFFFFF;
-width: 800px;
-margin: 0 auto;
-position: relative;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #FFFFFF;
+  width: 800px;
+  margin: 0 auto;
+  position: relative;
 `;

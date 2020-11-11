@@ -25,7 +25,7 @@ const handleBackground = background => {
       default:
         return `${Scissors}`;
     }
-  };
+};
 
 const StyledWrapper = styled.div`
 color: #fff;

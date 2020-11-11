@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const FlexWrapper = styled.div`
-overflow: auto;
 width: 100%;
 margin-top: 20px;
 margin-bottom: 20px;
