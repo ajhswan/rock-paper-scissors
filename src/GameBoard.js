@@ -175,7 +175,6 @@ export default GameBoard;
 
 const MainBoard = styled.div`
 background-color: #DBDBD;
-height: 650px;
 padding: 10px;
 overflow: auto;
 border-radius: 5px;
